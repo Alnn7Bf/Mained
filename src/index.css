@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-    
+    --tracking-navbar: 0.35rem;
+    --tracking-hero: 0.3rem;
+    --color-hero: linear-gradient(to left, #000, #0000);
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.hero {
+    width: auto;
+    min-height: 100vh;
 }
