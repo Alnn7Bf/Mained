@@ -4,7 +4,7 @@ function Header() {
 
   return (
     <>
-      <header className=''>
+      <header>
         <Navbar />
       </header>
     </>

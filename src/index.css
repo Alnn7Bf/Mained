@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-    --tracking-navbar: 0.35rem;
-    --tracking-hero: 0.3rem;
+    --tracking-navbar: 0.3rem;
+    --tracking-hero: 0.5rem;
+    --color-primary: #4d91ab;
+    --color-light: #efefef;
+    --color-dark: #0f0f0f;
+    --radius-global: 0.3rem;
 }
 
 * {
     font-family: "Montserrat", sans-serif;
-}
-
-.hero {
-    width: auto;
-    min-height: 100vh;
 }
