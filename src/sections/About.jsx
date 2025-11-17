@@ -1,3 +1,5 @@
+import aboutImg from '../assets/header-bg.jpg'
+
 function About() {
 
   return (
@@ -5,7 +7,7 @@ function About() {
       <section className="flex flex-col md:flex-row w-full bg-light justify-center items-center py-16 px-8" id="about">
         <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
           <div className="h-70 md:h-90 bg-gray-300 overflow-hidden rounded-global">
-            <img src="./src/assets/header-bg.jpg" alt="Nosotros" className="w-full h-full object-cover"/>
+            <img src={aboutImg} alt="Nosotros" className="w-full h-full object-cover"/>
           </div>
           <div className="flex flex-col gap-6">
             <h2 className="text-3xl tracking-widest text-center md:text-left">¿QUIÉNES SOMOS?</h2>
