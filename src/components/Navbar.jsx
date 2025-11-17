@@ -9,7 +9,7 @@ function Navbar() {
   };
 
   return (
-    <nav className={`z-20 flex fixed w-dvw bg-white/${isOpen? '80' : '40'} md:bg-white/40 justify-center flex-col md:flex-row text-black transition-all duration-500`} id="menu">
+    <nav className={`z-20 flex fixed w-dvw ${isOpen? 'bg-white/80' : 'bg-white/40'} md:bg-white/40 justify-center flex-col md:flex-row text-black transition-all duration-500`} id="menu">
       <label className="cursor-pointer md:hidden m-2" onClick={toggleMenu}>
         {isOpen? <IconClose size={36}/> : <IconMenu size={36}/>}
       </label>
