@@ -2,8 +2,8 @@ function About() {
 
   return (
     <>
-      <section className="h-dvh">
-        seccion de about
+      <section className="h-dvh bg-white">
+        SECCION DE ABOUT
       </section>
     </>
   )
