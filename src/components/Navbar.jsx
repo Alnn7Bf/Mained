@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {IconMenu, IconClose} from './Icons'
   
 const LinkItem = ({text, onClick}) => {
@@ -21,8 +21,27 @@ function Navbar() {
     document.getElementById(ref)?.scrollIntoView({behavior:'smooth'});
   }
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById("about");
+      if (!aboutSection) return;
+
+      const top = aboutSection.getBoundingClientRect().top;
+
+      // Cuando el top de la sección about sea menor o igual a 0, ya la alcanzaste
+      setScrolled(top <= 0);
+    };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
   return (
-    <nav className={`z-20 flex fixed w-dvw ${isOpen? 'bg-light/90' : 'bg-light/50'} md:bg-light/50 justify-center flex-col md:flex-row text-black transition-all duration-500`} id="menu">
+    <nav className={`z-20 flex fixed w-dvw ${isOpen? 'bg-light/80' : 'bg-light/30'} md:bg-light/30 justify-center flex-col md:flex-row backdrop-blur-xs text-black transition-all duration-500`} id="menu">
       <label className="cursor-pointer md:hidden m-2" onClick={toggleMenu}>
         {isOpen? <IconClose size={36}/> : <IconMenu size={36}/>}
       </label>
