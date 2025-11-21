@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {NavArrowDown, NavArrowUp} from "../components/Icons"
-import useScreenWidth from "../hooks/UseScreenWidth";
+import useScreenWidth from "../hooks/useScreenWidth"
 
 const normas = [
   {
