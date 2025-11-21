@@ -4,7 +4,7 @@ function About() {
 
   return (
     <>
-      <section className="flex flex-col md:flex-row w-full bg-light justify-center items-center py-16 px-8" id="about">
+      <section className="flex flex-col md:flex-row w-full bg-light justify-center items-center py-16 px-8 md:px-16" id="about">
         <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
           <div className="h-70 md:h-90 bg-gray-300 overflow-hidden rounded-global">
             <img src={aboutImg} alt="Nosotros" className="w-full h-full object-cover"/>

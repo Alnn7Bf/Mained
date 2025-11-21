@@ -30,9 +30,9 @@ function Services() {
 
   return (
     <>
-      <section className="flex w-full bg-primary/70 justify-center px-8 md:px-24" id="services">
-        <div className='flex flex-col w-full justify-center items-center'>
-          <h2 className='text-2xl text-center tracking-title m-6'>SERVICIOS</h2>
+      <section className="flex w-full bg-linear-to-tr from-primary-dark to-primary justify-center px-8 md:px-24 pb-12" id="services">
+        <div className='flex flex-col w-full justify-center items-center max-w-6xl'>
+          <h2 className='text-2xl text-center tracking-title m-6 text-light'>SERVICIOS</h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {
               services.map(({image, icon, title, description}, index) => (

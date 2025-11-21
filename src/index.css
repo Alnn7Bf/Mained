@@ -4,7 +4,8 @@
     --tracking-navbar: 0.3rem;
     --tracking-hero: 0.5rem;
     --tracking-title: 0.3rem;
-    --color-primary: #2e82b2;
+    --color-primary: #233341;
+    --color-primary-dark: color-mix(in srgb, var(--color-primary) 80%, black 100%);
     --color-light: #efefef;
     --color-dark: #0f0f0f;
     --radius-global: 0.2rem;
@@ -12,4 +13,8 @@
 
 * {
     font-family: "Montserrat", sans-serif;
+}
+
+.prueba {
+    background: #233341;
 }
