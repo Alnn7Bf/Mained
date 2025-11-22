@@ -8,13 +8,9 @@
     --color-primary-dark: color-mix(in srgb, var(--color-primary) 80%, black 100%);
     --color-light: #efefef;
     --color-dark: #0f0f0f;
-    --radius-global: 0.2rem;
+    --radius-global: 0rem;
 }
 
 * {
     font-family: "Montserrat", sans-serif;
-}
-
-.prueba {
-    background: #233341;
 }

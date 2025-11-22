@@ -48,7 +48,7 @@ function Navbar() {
           <LinkItem text={'INICIO'} onClick={() => linkFunction('start')}/>
           <LinkItem text={'NOSOTROS'} onClick={() => linkFunction('about')}/>
           <LinkItem text={'SERVICIOS'} onClick={() => linkFunction('services')}/>
-          <LinkItem text={'GALERIA'} onClick={() => linkFunction('gallery')}/>
+          <LinkItem text={'NORMATIVIDAD'} onClick={() => linkFunction('norms')}/>
           <LinkItem text={'CONTACTO'} onClick={() => linkFunction('contact')}/>
       </div>
     </nav>
