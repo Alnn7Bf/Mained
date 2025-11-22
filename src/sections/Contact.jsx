@@ -22,7 +22,7 @@ function Contact() {
               </div>
               <p className="font-light cursor-text break-all">grodriguezmained@gmail.com</p>
             </div>
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-row gap-4 md:gap-2 justify-center md:justify-start">
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 cursor-pointer">
                 <Facebook size={20}/>
               </a>
@@ -39,16 +39,16 @@ function Contact() {
           </div>
           <form action="" method="POST" className="flex flex-col gap-8 flex-1 rounded-global p-6">
             <div className="relative">
-              <input type="text" name="name" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="name" required/>
-              <label htmlFor="name" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm transition-all duration-300">Nombre</label>
+              <input type="text" name="name" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="name" placeholder=" " autoComplete="off" required/>
+              <label for="name" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Nombre</label>
             </div>
             <div className="relative">
-              <input type="email" name="email" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="email" required/>
-              <label htmlFor="email" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm transition-all duration-300">Correo</label>
+              <input type="email" name="email" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="email" placeholder=" " autoComplete="off" required/>
+              <label for="email" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Correo</label>
             </div>
             <div className="relative">
-              <textarea name="message" rows="4" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="message" required></textarea>
-              <label htmlFor="message" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm transition-all duration-300">Mensaje</label>
+              <textarea name="message" rows="4" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="message" placeholder=" " required></textarea>
+              <label for="message" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Mensaje</label>
             </div>
             <button type="submit" className="w-full bg-light text-dark py-3 rounded-lg hover:bg-light/80 transition duration-200">Enviar mensaje</button>
           </form>
