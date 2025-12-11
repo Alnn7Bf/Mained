@@ -1,6 +1,35 @@
+import { useState } from "react"
 import { Phone , Mail, Facebook, Instagram, XTwitter, LinkedIn} from "../components/Icons"
 
 function Contact() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(true);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+
+    try {
+      const res = await fetch("https://formspree.io/f/endpoint", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: new FormData(e.target)
+      });
+    } catch(error) {
+      console.error("Error uncaught", error);
+    }
+
+    setTimeout(() => {
+      setName('');
+      setEmail('');
+      setPhone('');
+      setMessage('');
+      setFormSubmitted(false);
+    }, 3000);
+  }
 
   return (
     <>
@@ -22,7 +51,7 @@ function Contact() {
               </div>
               <p className="font-light cursor-text break-all">grodriguezmained@gmail.com</p>
             </div>
-            <div className="flex flex-row gap-4 md:gap-2 justify-center md:justify-start">
+            {/* <div className="flex flex-row gap-4 md:gap-2 justify-center md:justify-start">
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 cursor-pointer rounded-global hover:text-primary hover:bg-light transition-colors duration-200">
                 <Facebook size={20}/>
               </a>
@@ -35,23 +64,39 @@ function Contact() {
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 cursor-pointer rounded-global hover:text-primary hover:bg-light transition-colors duration-200">
                 <LinkedIn size={20}/>
               </a>
-            </div>
+            </div> */}
           </div>
-          <form action="" method="POST" className="flex flex-col gap-8 flex-1 rounded-global p-0 md:p-6">
-            <div className="relative">
-              <input type="text" name="name" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="name" placeholder=" " autoComplete="off" required/>
-              <label htmlFor="name" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Nombre</label>
-            </div>
-            <div className="relative">
-              <input type="email" name="email" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="email" placeholder=" " autoComplete="off" required/>
-              <label htmlFor="email" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Correo</label>
-            </div>
-            <div className="relative">
-              <textarea name="message" rows="4" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="message" placeholder=" " required></textarea>
-              <label htmlFor="message" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Mensaje</label>
-            </div>
-            <button type="submit" className="w-full bg-light text-dark py-3 rounded-global hover:bg-light/80 transition duration-200">Enviar mensaje</button>
-          </form>
+          {
+            formSubmitted? (
+              <div className="flex flex-col bg-light/10 justify-center items-center text-center gap-6 flex-1 p-6">
+                <h3 className="text-xl tracking-title text-light">¡MENSAJE ENVIADO!</h3>
+                <p className="text-light/80 max-w-sm">
+                  Gracias por escribirnos. Te responderemos lo más pronto posible.
+                </p>
+                <div className="w-8 h-8 border-4 border-light/40 border-t-light rounded-full animate-spin"></div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-8 flex-1 p-0 md:p-6">
+                <div className="relative">
+                  <input type="text" name="name" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="name" placeholder=" " autoComplete="off" required/>
+                  <label htmlFor="name" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Nombre</label>
+                </div>
+                <div className="relative">
+                  <input type="email" name="email" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="email" placeholder=" " autoComplete="off" required/>
+                  <label htmlFor="email" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Correo</label>
+                </div>
+                <div className="relative">
+                  <input type="tel" name="phone" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="phone" inputMode="numeric" placeholder=" " autoComplete="off" required/>
+                  <label htmlFor="phone" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Teléfono</label>
+                </div>
+                <div className="relative">
+                  <textarea name="message" rows="4" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="message" placeholder=" " required></textarea>
+                  <label htmlFor="message" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Mensaje</label>
+                </div>
+                <button type="submit" className="w-full bg-light text-dark py-3 rounded-global hover:bg-light/80 transition duration-200">Enviar mensaje</button>
+              </form>
+            )
+          }
         </div>
       </section>
     </>
