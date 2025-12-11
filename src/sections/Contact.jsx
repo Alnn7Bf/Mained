@@ -1,12 +1,16 @@
 import { useState } from "react"
-import { Phone , Mail, Facebook, Instagram, XTwitter, LinkedIn} from "../components/Icons"
+import { Phone , Mail, Facebook, Instagram, XTwitter, LinkedIn, Check} from "../components/Icons"
 
 function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [sendingDone, setSendingDone] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setFormSubmitted(true);
+    setSendingDone(false);
 
     try {
       const res = await fetch("https://formspree.io/f/xdkqwqnn", {
@@ -16,8 +20,12 @@ function Contact() {
       });
       if(res.ok) {
         setTimeout(() => {
-          setFormSubmitted(false);
-        }, 3000);
+          setSendingDone(true);
+        }, 1000);
+        setTimeout(() => {
+          setFormSubmitted(false)
+          setSendingDone(false);
+        }, 4000);
       }
     } catch(error) {
       console.error("Error uncaught", error);
@@ -46,27 +54,41 @@ function Contact() {
             </div>
             {/* <div className="flex flex-row gap-4 md:gap-2 justify-center md:justify-start">
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 cursor-pointer rounded-global hover:text-primary hover:bg-light transition-colors duration-200">
-                <Facebook size={20}/>
+                <Facebook size={25}/>
               </a>
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 cursor-pointer rounded-global hover:text-primary hover:bg-light transition-colors duration-200">
-                <Instagram size={20}/>
+                <Instagram size={25}/>
               </a>
               <a href="https://www.x.com" target="_blank" rel="noopener noreferrer" className="p-2 cursor-pointer rounded-global hover:text-primary hover:bg-light transition-colors duration-200">
-                <XTwitter size={20}/>
+                <XTwitter size={25}/>
               </a>
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 cursor-pointer rounded-global hover:text-primary hover:bg-light transition-colors duration-200">
-                <LinkedIn size={20}/>
+                <LinkedIn size={25}/>
               </a>
             </div> */}
           </div>
           {
             formSubmitted? (
               <div className="flex flex-col bg-light/10 justify-center items-center text-center gap-6 flex-1 p-6">
-                <h3 className="text-xl tracking-title text-light">¡MENSAJE ENVIADO!</h3>
-                <p className="text-light/80 max-w-sm">
-                  Gracias por escribirnos. Te responderemos lo más pronto posible.
-                </p>
-                <div className="w-8 h-8 border-4 border-light/40 border-t-light rounded-full animate-spin"></div>
+                {
+                  !sendingDone? (
+                    <>
+                      <h3 className="text-xl tracking-title text-light">ENVIANDO CORREO...</h3>
+                      <p className="text-light/80 max-w-sm">
+                        Por favor espere un momento.
+                      </p>
+                      <div className="w-8 h-8 border-4 border-light/40 border-t-light rounded-full animate-spin"></div>
+                    </>
+                  ) : (
+                    <>
+                      <h3 className="text-xl tracking-title text-light">CORREO ENVIADO!</h3>
+                      <p className="text-light/80 max-w-sm">
+                        Gracias por escribirnos. Le responderemos lo más pronto posible.
+                      </p>
+                      <Check size={32}/>
+                    </>
+                  )
+                }
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-8 flex-1 p-0 md:p-6">
