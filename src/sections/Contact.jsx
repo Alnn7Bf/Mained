@@ -37,17 +37,17 @@ function Contact() {
               </a>
             </div>
           </div>
-          <form action="" method="POST" className="flex flex-col gap-8 flex-1 rounded-global p-6">
+          <form action="" method="POST" className="flex flex-col gap-8 flex-1 rounded-global p-0 md:p-6">
             <div className="relative">
-              <input type="text" name="name" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="name" placeholder=" " autoComplete="off" required/>
+              <input type="text" name="name" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="name" placeholder=" " autoComplete="off" required/>
               <label htmlFor="name" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Nombre</label>
             </div>
             <div className="relative">
-              <input type="email" name="email" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="email" placeholder=" " autoComplete="off" required/>
+              <input type="email" name="email" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="email" placeholder=" " autoComplete="off" required/>
               <label htmlFor="email" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Correo</label>
             </div>
             <div className="relative">
-              <textarea name="message" rows="4" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global focus:bg-light focus:border-transparent focus:text-dark transition-all duration-200 outline-none" id="message" placeholder=" " required></textarea>
+              <textarea name="message" rows="4" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="message" placeholder=" " required></textarea>
               <label htmlFor="message" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Mensaje</label>
             </div>
             <button type="submit" className="w-full bg-light text-dark py-3 rounded-global hover:bg-light/80 transition duration-200">Enviar mensaje</button>
