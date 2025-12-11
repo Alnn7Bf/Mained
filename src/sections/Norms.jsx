@@ -98,7 +98,14 @@ function Norms() {
               modal.map(({code, description, ref}, index) => (
                 <li key={index} className="p-4 rounded-global bg-white border-l-4 border-primary cursor-pointer shadow-md" onClick={() => ref && window.open(ref, '_blank')}>
                   <h3 className="text-lg font-medium tracking-wide">{code}</h3>
-                  <p className="text-sm text-primary/80">{description}</p>
+                  {
+                    isOpen?
+                    (
+                      <p className="text-sm text-primary/80">{description}</p>
+                    ) : (
+                      <></>
+                    )
+                  }
                 </li>
               ))
             }

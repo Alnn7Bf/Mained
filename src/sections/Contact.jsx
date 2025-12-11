@@ -2,10 +2,6 @@ import { useState } from "react"
 import { Phone , Mail, Facebook, Instagram, XTwitter, LinkedIn} from "../components/Icons"
 
 function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -15,20 +11,17 @@ function Contact() {
     try {
       const res = await fetch("https://formspree.io/f/xdkqwqnn", {
         method: "POST",
-        headers: { "Accept": "application/json" },
+        headers: { 'Accept': 'application/json' },
         body: new FormData(e.target)
       });
+      if(res.ok) {
+        setTimeout(() => {
+          setFormSubmitted(false);
+        }, 3000);
+      }
     } catch(error) {
       console.error("Error uncaught", error);
     }
-
-    setTimeout(() => {
-      setName('');
-      setEmail('');
-      setPhone('');
-      setMessage('');
-      setFormSubmitted(false);
-    }, 3000);
   }
 
   return (
@@ -77,6 +70,7 @@ function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-8 flex-1 p-0 md:p-6">
+                <input type="text" name="_gotcha" className="hidden"/>
                 <div className="relative">
                   <input type="text" name="name" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="name" placeholder=" " autoComplete="off" required/>
                   <label htmlFor="name" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Nombre</label>
