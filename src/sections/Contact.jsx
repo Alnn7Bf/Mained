@@ -13,7 +13,7 @@ function Contact() {
     setFormSubmitted(true);
 
     try {
-      const res = await fetch("https://formspree.io/f/endpoint", {
+      const res = await fetch("https://formspree.io/f/xdkqwqnn", {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: new FormData(e.target)
