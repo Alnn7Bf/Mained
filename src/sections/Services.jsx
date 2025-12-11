@@ -1,6 +1,5 @@
 import ServiceCard from '../components/ServiceCard'
 import {Icon1, Icon2, Icon3, Icon4} from '../components/Icons'
-import bg from '../assets/header-bg.jpg'
 import img1 from '../assets/img1.jpg'
 import img2 from '../assets/img2.jpg'
 import img3 from '../assets/img3.jpg'
