@@ -92,7 +92,7 @@ function Contact() {
                   <textarea name="message" rows="4" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="message" placeholder=" " required></textarea>
                   <label htmlFor="message" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Mensaje</label>
                 </div>
-                <button type="submit" className="w-full bg-light text-dark py-3 rounded-global hover:bg-light/80 transition duration-200">Enviar mensaje</button>
+                <button type="submit" className="w-full bg-light text-dark py-3 rounded-global hover:bg-light/80 transition duration-200 cursor-pointer">Enviar mensaje</button>
               </form>
             )
           }

@@ -1,9 +1,16 @@
+import { useState } from "react";
 import useWaveAnimation from "../hooks/useWaveAnimation"
 import { PlusIcon, MinusIcon } from "./Icons";
 
-function ServiceCard({ image, icon, title, description, position, isOpen, handleClick}) {
+function ServiceCard({ image, icon, title, description, longDescription, position}) {
   const Icon = icon;
   const bgPosition = useWaveAnimation(position);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  }
 
   return (
     <>
@@ -29,8 +36,8 @@ function ServiceCard({ image, icon, title, description, position, isOpen, handle
             <p className="text-sm text-inherit/60 text-center">{description}</p>
           </div>
           <div className={`overflow-hidden transition-all duration-300 ease-in ${isOpen? "max-h-60 md:max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
-            <div className="p-5 text-sm text-inherit/80">
-              <p className="">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur delectus itaque placeat eveniet, id tenetur ipsum similique esse dignissimos, rerum asperiores quod ratione provident quaerat excepturi beatae sequi cum velit.</p>
+            <div className="pt-2 p-5 text-sm text-inherit/80">
+              <p className="">{longDescription}</p>
             </div>
           </div>
         </div>
