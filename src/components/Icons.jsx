@@ -1,4 +1,4 @@
-export const IconMenu = ({size}) => {
+export const MenuIcon = ({size}) => {
     return <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M3.75 12h16.5"></path>
@@ -8,7 +8,7 @@ export const IconMenu = ({size}) => {
     </>
 };
 
-export const IconClose = ({size}) => {
+export const CloseIcon = ({size}) => {
     return  <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="m18.75 5.25-13.5 13.5"></path>
@@ -61,7 +61,7 @@ export const Icon4 = ({size}) => {
     </>
 };
 
-export const NavArrowDown = ({size}) => {
+export const NavArrowDownIcon = ({size}) => {
     return  <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 9L12 15L18 9"></path>
@@ -69,7 +69,7 @@ export const NavArrowDown = ({size}) => {
     </>
 };
 
-export const NavArrowUp = ({size}) => {
+export const NavArrowUpIcon = ({size}) => {
     return  <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 15L12 9L18 15"></path>
@@ -77,7 +77,32 @@ export const NavArrowUp = ({size}) => {
     </>
 };
 
-export const Phone = ({size}) => {
+export const CheckIcon = ({size}) => {
+    return  <>
+        <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 12.5L10 15.5L17 8.5"></path>
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"></path>
+        </svg>
+    </>
+}
+
+export const PlusIcon = ({size}) => {
+    return  <>
+        <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 12H12M18 12H12M12 12V6M12 12V18"></path>
+        </svg>
+    </>
+}
+
+export const MinusIcon = ({size}) => {
+    return  <>
+        <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 12H18"></path>
+        </svg>
+    </>
+}
+
+export const PhoneIcon = ({size}) => {
     return  <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.1182 14.702L14 15.5C11.2183 14.1038 9.5 12.5 8.5 10L9.26995 5.8699L7.81452 2L4.0636 2C2.93605 2 2.04814 2.93178 2.21654 4.04668C2.63695 6.83 3.87653 11.8765 7.5 15.5C11.3052 19.3052 16.7857 20.9564 19.802 21.6127C20.9668 21.8662 22 20.9575 22 19.7655L22 16.1812L18.1182 14.702Z" fill="currentColor"></path>
@@ -85,7 +110,7 @@ export const Phone = ({size}) => {
     </>
 };
 
-export const Mail = ({size}) => {
+export const MailIcon = ({size}) => {
     return  <>
         <svg width={size * (4/3)} height={size * (4/3)} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 9L12 12.5L17 9"></path>
@@ -94,7 +119,7 @@ export const Mail = ({size}) => {
     </>
 };
 
-export const Facebook = ({size}) => {
+export const FacebookIcon = ({size}) => {
     return  <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z"></path>
@@ -102,7 +127,7 @@ export const Facebook = ({size}) => {
     </>
 };
 
-export const Instagram = ({size}) => {
+export const InstagramIcon = ({size}) => {
     return  <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"></path>
@@ -112,7 +137,7 @@ export const Instagram = ({size}) => {
     </>
 };
 
-export const XTwitter = ({size}) => {
+export const XTwitterIcon = ({size}) => {
     return  <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.8198 20.7684L3.75317 3.96836C3.44664 3.57425 3.72749 3 4.22678 3H6.70655C6.8917 3 7.06649 3.08548 7.18016 3.23164L20.2468 20.0316C20.5534 20.4258 20.2725 21 19.7732 21H17.2935C17.1083 21 16.9335 20.9145 16.8198 20.7684Z"></path>
@@ -121,7 +146,7 @@ export const XTwitter = ({size}) => {
     </>
 };
 
-export const LinkedIn = ({size}) => {
+export const LinkedInIcon = ({size}) => {
     return  <>
         <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.15 8.398a5.83 5.83 0 0 0-5.85 5.82v5.88a.9.9 0 0 0 .9.9h2.1a.9.9 0 0 0 .9-.9v-5.88a1.941 1.941 0 0 1 2.15-1.93 2 2 0 0 1 1.75 2v5.81a.9.9 0 0 0 .9.9h2.1a.9.9 0 0 0 .9-.9v-5.88a5.828 5.828 0 0 0-5.85-5.82Z"></path>
@@ -130,12 +155,3 @@ export const LinkedIn = ({size}) => {
         </svg>
     </>
 };
-
-export const Check = ({size}) => {
-    return  <>
-        <svg width={size} height={size} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 12.5L10 15.5L17 8.5"></path>
-            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"></path>
-        </svg>
-    </>
-}

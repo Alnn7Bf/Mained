@@ -4,36 +4,42 @@ import img1 from '../assets/img1.jpg'
 import img2 from '../assets/img2.jpg'
 import img3 from '../assets/img3.jpg'
 import img4 from '../assets/img4.jpg'
+import { useState } from 'react'
+
+const services = [
+  {
+    image: img1,
+    icon: Icon1,
+    title: "POR EVENTO",
+    description: "Limpieza por evento único.", 
+    position: 27
+  }, {
+    image: img2,
+    icon: Icon2,
+    title: "IMPLANT",
+    description: "Personal cuidadosamente seleccionado y capacitado.", 
+    position: 40
+  }, {
+    image: img3,
+    icon: Icon3,
+    title: "INSIDE / OUTSIDE",
+    description: "Limpieza de ventanas por ambas caras para ofrecer mejores resultados.", 
+    position: 30
+  }, {
+    image: img4,
+    icon: Icon4,
+    title: "TRABAJOS EN ALTURAS",
+    description: "Que contribuyen a mejorar la imagen del inmueble.", 
+    position: 35
+  }
+]
 
 function Services() {
-  const services = [
-    {
-      image: img1,
-      icon: Icon1,
-      title: "POR EVENTO",
-      description: "Limpieza por evento único.", 
-      position: 27
-    }, {
-      image: img2,
-      icon: Icon2,
-      title: "IMPLANT",
-      description: "Personal cuidadosamente seleccionado y capacitado.", 
-      position: 40
-    }, {
-      image: img3,
-      icon: Icon3,
-      title: "INSIDE / OUTSIDE",
-      description: "Limpieza de ventanas por ambas caras para ofrecer mejores resultados.", 
-      position: 30
-    }, {
-      image: img4,
-      icon: Icon4,
-      title: "TRABAJOS EN ALTURAS",
-      description: "Que contribuyen a mejorar la imagen del inmueble.", 
-      position: 35
-    }
-  ]
-
+  const [index, setIndex] = useState(null);
+  const handleClick = (i) => {
+    setIndex(prev => (prev === i ? null : i));
+    console.log(i);
+  };
 
   return (
     <>
@@ -42,8 +48,8 @@ function Services() {
           <h2 className='text-2xl text-center tracking-title m-6 text-light'>SERVICIOS</h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
             {
-              services.map(({image, icon, title, description, position}, index) => (
-                <ServiceCard key={index} image={image} icon={icon} title={title} description={description} position={position}/>
+              services.map(({image, icon, title, description, position}, i) => (
+                <ServiceCard key={i} image={image} icon={icon} title={title} description={description} position={position} isOpen={index == i} handleClick={() => handleClick(i)}/>
               ))
             }
           </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import {IconMenu, IconClose} from './Icons'
+import {MenuIcon, CloseIcon} from './Icons'
   
 const LinkItem = ({text, onClick}) => {
   return (
@@ -42,7 +42,7 @@ function Navbar() {
   return (
     <nav className={`z-20 flex fixed w-dvw ${isOpen? 'bg-light/80' : 'bg-light/50'} md:bg-light/50 justify-center flex-col md:flex-row backdrop-blur-xs text-black transition-all duration-500 shadow-sm`} id="menu">
       <label className="cursor-pointer md:hidden m-2" onClick={toggleMenu}>
-        {isOpen? <IconClose size={36}/> : <IconMenu size={36}/>}
+        {isOpen? <CloseIcon size={36}/> : <MenuIcon size={36}/>}
       </label>
       <div className={`flex flex-col md:flex-row w-full justify-center items-center overflow-hidden ${isOpen? 'h-96' : 'h-0'} md:h-auto transition-all duration-500`} id="menu-toggle">
           <LinkItem text={'INICIO'} onClick={() => linkFunction('start')}/>

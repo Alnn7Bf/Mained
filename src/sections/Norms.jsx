@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {NavArrowDown, NavArrowUp} from "../components/Icons"
+import {NavArrowDownIcon, NavArrowUpIcon} from "../components/Icons"
 import useScreenWidth from "../hooks/useScreenWidth"
 
 const normas = [
@@ -112,7 +112,7 @@ function Norms() {
           </ul>
           <button className="flex flex-row gap-2 items-center bg-primary text-white font-light mx-auto py-2 px-6 rounded-global hover:bg-primary/90" onClick={() => {setIsOpen(!isOpen)}}>
             Ver {isOpen? 'menos' : 'más'}
-            {isOpen? <NavArrowUp size={20}/> : <NavArrowDown size={20}/>}
+            {isOpen? <NavArrowUpIcon size={20}/> : <NavArrowDownIcon size={20}/>}
           </button>
         </div>
       </section>

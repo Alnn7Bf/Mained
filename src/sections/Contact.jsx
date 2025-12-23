@@ -1,5 +1,17 @@
 import { useState } from "react"
-import { Phone , Mail, Facebook, Instagram, XTwitter, LinkedIn, Check} from "../components/Icons"
+import { PhoneIcon , MailIcon, FacebookIcon, InstagramIcon, XTwitterIcon, LinkedInIcon} from "../components/Icons"
+import ContactStatus from "../components/ContactStatus";
+
+const FloatingInput = ({type, name, text}) => {
+  return (
+    <>
+      <div className="relative">
+        <input type={type} name={name} className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id={name} placeholder=" " autoComplete="off" required/>
+        <label htmlFor={name} className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">{text}</label>
+      </div>
+    </>
+  )
+}
 
 function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -40,15 +52,15 @@ function Contact() {
             <h2 className='text-2xl text-center tracking-title text-light'>CONTACTO</h2>
             <div className="grid grid-cols-[auto_1fr] gap-y-6 gap-x-4">
               <div className="flex items-center justify-center">
-                <Phone size={18}/>
+                <PhoneIcon size={18}/>
               </div>
               <p className="font-light cursor-text">+52 55 7601 4517</p>
               <div className="flex items-center justify-center">
-                <Phone size={18}/>
+                <PhoneIcon size={18}/>
               </div>
               <p className="font-light cursor-text">+52 55 3241 6727</p>
               <div className="flex items-center justify-center">
-                <Mail size={18}/>
+                <MailIcon size={18}/>
               </div>
               <p className="font-light cursor-text break-all">grodriguezmained@gmail.com</p>
             </div>
@@ -69,42 +81,13 @@ function Contact() {
           </div>
           {
             formSubmitted? (
-              <div className="flex flex-col bg-light/10 justify-center items-center text-center gap-6 flex-1 p-6">
-                {
-                  !sendingDone? (
-                    <>
-                      <h3 className="text-xl tracking-title text-light">ENVIANDO CORREO...</h3>
-                      <p className="text-light/80 max-w-sm">
-                        Por favor espere un momento.
-                      </p>
-                      <div className="w-8 h-8 border-4 border-light/40 border-t-light rounded-full animate-spin"></div>
-                    </>
-                  ) : (
-                    <>
-                      <h3 className="text-xl tracking-title text-light">CORREO ENVIADO!</h3>
-                      <p className="text-light/80 max-w-sm">
-                        Gracias por escribirnos. Le responderemos lo más pronto posible.
-                      </p>
-                      <Check size={32}/>
-                    </>
-                  )
-                }
-              </div>
+              <ContactStatus sendingDone={sendingDone}/>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-8 flex-1 p-0 md:p-6">
                 <input type="text" name="_gotcha" className="hidden"/>
-                <div className="relative">
-                  <input type="text" name="name" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="name" placeholder=" " autoComplete="off" required/>
-                  <label htmlFor="name" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Nombre</label>
-                </div>
-                <div className="relative">
-                  <input type="email" name="email" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="email" placeholder=" " autoComplete="off" required/>
-                  <label htmlFor="email" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Correo</label>
-                </div>
-                <div className="relative">
-                  <input type="tel" name="phone" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="phone" inputMode="numeric" placeholder=" " autoComplete="off" required/>
-                  <label htmlFor="phone" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Teléfono</label>
-                </div>
+                <FloatingInput type={"text"} name={"name"} text={"Nombre"}/>
+                <FloatingInput type={"email"} name={"email"} text={"Correo"}/>
+                <FloatingInput type={"tel"} name={"phone"} text={"Teléfono"}/>
                 <div className="relative">
                   <textarea name="message" rows="4" className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" id="message" placeholder=" " required></textarea>
                   <label htmlFor="message" className="absolute cursor-text text-light/60 peer-focus:text-light left-3 top-3 peer-focus:-top-6 peer-focus:left-1 peer-focus:text-sm peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:left-1 peer-not-placeholder-shown:text-sm transition-all duration-300">Mensaje</label>
