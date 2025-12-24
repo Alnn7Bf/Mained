@@ -26,7 +26,7 @@ function ServiceCard({ image, icon, title, description, longDescription, positio
               )
             }
           </div>
-          <div className={`flex flex-col p-6 ${isOpen? 'pb-0' : ''} justify-center items-center transition-all duration-300 ease-in`}>
+          <div className={`flex flex-col p-6 pb-0 mb-3 justify-center items-center transition-all duration-300 ease-in`}>
             <div className="flex h-24 w-24 justify-center items-center">
               <Icon size={60} />
             </div>
@@ -36,7 +36,7 @@ function ServiceCard({ image, icon, title, description, longDescription, positio
             <p className="text-sm text-inherit/60 text-center">{description}</p>
           </div>
           <div className={`overflow-hidden transition-all duration-300 ease-in ${isOpen? "max-h-60 md:max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
-            <div className="pt-2 p-5 text-sm text-inherit/80">
+            <div className="pt-0 p-5 text-sm text-inherit/80">
               <p className="">{longDescription}</p>
             </div>
           </div>
