@@ -161,8 +161,7 @@ function Contact() {
                     rows="3" 
                     className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" 
                     id="message" 
-                    placeholder=" " 
-                    required
+                    placeholder=" "
                   ></textarea>
                   <label 
                     htmlFor="message" 
