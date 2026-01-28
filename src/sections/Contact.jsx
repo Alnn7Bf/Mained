@@ -9,7 +9,7 @@ const FloatingInput = ({type, name, text}) => {
         <input 
           type={type} 
           name={name} 
-          className="autofill-transparent peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" 
+          className="peer block w-full border border-transparent border-b-light/30 px-4 py-2 my-1 rounded-global outline-none" 
           id={name} 
           placeholder=" " 
           autoComplete="off" 
@@ -22,7 +22,7 @@ const FloatingInput = ({type, name, text}) => {
             cursor-text 
             text-light/60 
             peer-focus:text-light 
-            left-3 
+            left-4 
             top-3 
             peer-focus:-top-4 
             peer-focus:left-1 
@@ -159,7 +159,7 @@ function Contact() {
                   <textarea 
                     name="message" 
                     rows="3" 
-                    className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" 
+                    className="peer block w-full border border-transparent border-b-light/30 px-4 py-2 my-1 rounded-global outline-none" 
                     id="message" 
                     placeholder=" "
                   ></textarea>
@@ -170,12 +170,12 @@ function Contact() {
                       cursor-text 
                       text-light/60 
                       peer-focus:text-light 
-                      left-3 
+                      left-4 
                       top-3 
-                      peer-focus:-top-6 
+                      peer-focus:-top-4 
                       peer-focus:left-1 
                       peer-focus:text-sm 
-                      peer-not-placeholder-shown:-top-6 
+                      peer-not-placeholder-shown:-top-4 
                       peer-not-placeholder-shown:left-1 
                       peer-not-placeholder-shown:text-sm 
                       transition-all 
