@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {NavArrowDownIcon, NavArrowUpIcon} from "../components/Icons"
+import { NavArrowDownIcon, NavArrowUpIcon } from "../components/Icons"
 import useScreenWidth from "../hooks/useScreenWidth"
 
 const normas = [
@@ -82,14 +82,13 @@ const normas = [
 
 function Norms() {
   const [isOpen, setIsOpen] = useState(false);
-  const width = useScreenWidth();
 
-  const limit = width >= 768 ? 6 : 3;
+  const limit = useScreenWidth() >= 768 ? 6 : 3;
   const modal = isOpen ? normas : normas.slice(0, limit);
 
   return (
     <>
-      <section className="flex justify-center bg-light w-full px-10 py-10" id="norms">
+      <section className="flex justify-center bg-light w-full px-10 py-8" id="norms">
         <div className="max-w-6xl w-full flex flex-col gap-4">
           <h2 className='text-2xl text-center tracking-title'>MARCO NORMATIVO</h2>
           <p className="text-md text-center md:text-left text-primary">Cumplimos con las normas aplicables para garantizar seguridad, calidad y confianza en nuestros servicios:</p>

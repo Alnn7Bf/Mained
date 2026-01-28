@@ -1,55 +1,121 @@
-import { useState, useEffect } from 'react'
-import {MenuIcon, CloseIcon} from './Icons'
+import { useState } from 'react'
+import useScreenWidth from "../hooks/useScreenWidth"
+import { MenuIcon, CloseIcon, NavArrowDownIcon, NavArrowUpIcon } from './Icons'
+
   
-const LinkItem = ({text, onClick}) => {
+const LinkItem = ({children, onClick}) => {
   return (
     <>
-      <a className={`px-6 py-6 md:py-3 lg:px-8 xl:px-10 tracking-navbar text-xs font-medium hover:text-gray-700 cursor-pointer`} onClick={onClick}>{text}</a>
+      <a className={`flex gap-2 items-center p-4 md:py-3 lg:px-8 xl:px-10 tracking-navbar text-xs font-medium hover:text-gray-700 cursor-pointer`} onClick={onClick}>{children}</a>
     </>
   )
 }
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const screenWidth = useScreenWidth();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    setIsMoreOpen(false);
   };
 
   const linkFunction = (ref) => {
-    toggleMenu();
-    document.getElementById(ref)?.scrollIntoView({behavior:'smooth'});
+    setIsMoreOpen(false);
+    setIsOpen(false);
+
+    const element = document.getElementById(ref);
+    if(!element) return;
+    
+    const offset = screenWidth >= 768 ? -40 : -52;
+
+    window.scrollTo({
+      top: element.getBoundingClientRect().top + window.scrollY + offset,
+      behavior: 'smooth'
+    });
   }
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const aboutSection = document.getElementById("about");
-      if (!aboutSection) return;
-
-      const top = aboutSection.getBoundingClientRect().top;
-
-      setScrolled(top <= 0);
-    };
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
-
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
   return (
-    <nav className={`z-20 flex fixed w-dvw ${isOpen? 'bg-light/80' : 'bg-light/50'} md:bg-light/50 justify-center flex-col md:flex-row backdrop-blur-xs text-black transition-all duration-500 shadow-sm`} id="menu">
-      <label className="cursor-pointer md:hidden m-2" onClick={toggleMenu}>
-        {isOpen? <CloseIcon size={36}/> : <MenuIcon size={36}/>}
+    <nav 
+      className={`
+        z-20 
+        flex 
+        fixed 
+        w-dvw 
+        ${isOpen? 'bg-light/80' : 'bg-light/50'} 
+        md:bg-light/50 
+        justify-center 
+        flex-col 
+        md:flex-row 
+        backdrop-blur-xs 
+        text-black 
+        transition-all 
+        duration-500 
+        shadow-sm
+      `} 
+      id="menu"
+    >
+      <label className="md:hidden m-2">
+        <div 
+          className='cursor-pointer w-min' 
+          onClick={toggleMenu}
+        >
+          {isOpen? <CloseIcon size={36}/> : <MenuIcon size={36}/>}
+        </div> 
       </label>
-      <div className={`flex flex-col md:flex-row w-full justify-center items-center overflow-hidden ${isOpen? 'h-96' : 'h-0'} md:h-auto transition-all duration-500`} id="menu-toggle">
-          <LinkItem text={'INICIO'} onClick={() => linkFunction('start')}/>
-          <LinkItem text={'NOSOTROS'} onClick={() => linkFunction('about')}/>
-          <LinkItem text={'SERVICIOS'} onClick={() => linkFunction('services')}/>
-          <LinkItem text={'NORMATIVIDAD'} onClick={() => linkFunction('norms')}/>
-          <LinkItem text={'CONTACTO'} onClick={() => linkFunction('contact')}/>
+      <div 
+        className={`
+          flex 
+          flex-col
+          md:flex-row 
+          ${isOpen? 'h-dvh' : 'h-0'}
+          md:h-auto
+          w-full 
+          justify-start 
+          md:justify-center
+          items-center 
+          md:items-start
+          overflow-hidden 
+          transition-all 
+          duration-500
+        `} 
+        id="menu-toggle"
+      >
+        <LinkItem children={'INICIO'} onClick={() => linkFunction('start')}/>
+        <LinkItem children={'NOSOTROS'} onClick={() => linkFunction('about')}/>
+        <LinkItem children={'SERVICIOS'} onClick={() => linkFunction('services')}/>
+        <LinkItem children={'GALERÍA'} onClick={() => linkFunction('gallery')}/>
+        {
+          screenWidth >= 768? (
+            <div className='relative flex flex-col items-center justify-center transition-all duration-500'>
+              <LinkItem onClick={() => setIsMoreOpen(!isMoreOpen)}> 
+                <>MÁS</>
+                {
+                  isMoreOpen? <NavArrowUpIcon size={15}/> : <NavArrowDownIcon size={15}/>
+                }
+              </LinkItem>
+              <div className={`
+                ${isMoreOpen? "max-h-20 opacity-100" : "max-h-0 opacity-0"}
+                w-0
+                flex 
+                flex-col 
+                items-center 
+                transition-all 
+                duration-500
+              `}>
+                <LinkItem children={'CLIENTES'} onClick={() => linkFunction('clients')}/>
+                <LinkItem children={'NORMATIVIDAD'} onClick={() => linkFunction('norms')}/>
+              </div>
+            </div>
+          ) : (
+            <>
+              <LinkItem children={'CLIENTES'} onClick={() => linkFunction('clients')}/>
+              <LinkItem children={'NORMATIVIDAD'} onClick={() => linkFunction('norms')}/>
+            </>
+          )
+        }
+        <LinkItem children={'CONTACTO'} onClick={() => linkFunction('contact')}/>
       </div>
     </nav>
   )
