@@ -1,16 +1,48 @@
 @import "tailwindcss";
 
-@theme {
+:root {
     --tracking-navbar: 0.3rem;
     --tracking-hero: 0.5rem;
     --tracking-title: 0.3rem;
-    --color-primary: #233341;
-    --color-primary-dark: color-mix(in srgb, var(--color-primary) 80%, black 100%);
+
+    --color-primary: #263746;
+    --color-primary-dark: color-mix(
+        in srgb, 
+        var(--color-primary) 35%, 
+        var(--color-dark) 100%
+    );
+    --color-primary-light: color-mix(
+        in srgb, 
+        var(--color-primary) 100%, 
+        var(--color-light) 20%
+    );
     --color-light: #efefef;
     --color-dark: #0f0f0f;
+
     --radius-global: 0rem;
 }
 
-* {
+@theme {
+    --tracking-navbar: var(--tracking-navbar);
+    --tracking-hero: var(--tracking-hero);
+    --tracking-title: var(--tracking-title);
+
+    --color-primary: var(--color-primary);
+    --color-primary-dark: var(--color-primary-dark);
+    --color-primary-light: var(--color-primary-light);
+    --color-light: var(--color-light);
+    --color-dark: var(--color-dark);
+    
+    --radius-global: var(--radius-global);
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
     font-family: "Montserrat", sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-dark);
 }

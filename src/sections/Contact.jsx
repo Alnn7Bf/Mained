@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { PhoneIcon , MailIcon, WhatsAppIcon, FacebookIcon, InstagramIcon, XTwitterIcon, LinkedInIcon} from "../components/Icons"
+import { PhoneIcon , MailIcon, WhatsAppIcon, FacebookIcon, InstagramIcon, XTwitterIcon, LinkedInIcon, SendIcon } from "../components/Icons"
 import ContactStatus from "../components/ContactStatus";
 
 const FloatingInput = ({type, name, text}) => {
@@ -24,10 +24,10 @@ const FloatingInput = ({type, name, text}) => {
             peer-focus:text-light 
             left-3 
             top-3 
-            peer-focus:-top-6 
+            peer-focus:-top-4 
             peer-focus:left-1 
             peer-focus:text-sm 
-            peer-not-placeholder-shown:-top-6 
+            peer-not-placeholder-shown:-top-4 
             peer-not-placeholder-shown:left-1 
             peer-not-placeholder-shown:text-sm 
             transition-all 
@@ -63,7 +63,7 @@ const CopyText = ({text}) => {
     try {
       await navigator.clipboard.writeText(text);
       setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 800);
+      setTimeout(() => setIsCopied(false), 21800);
     } catch (err) {
       console.warn("No se pudo copiar al portapapeles");
     }
@@ -79,7 +79,7 @@ const CopyText = ({text}) => {
             {text}
         </p>
         {isCopied && (
-          <span className="absolute top-8 bg-black text-white text-xs px-2 py-1 opacity-80 border border-light">
+          <span className="hidden md:block absolute top-8 bg-primary-dark/60 text-white text-xs px-2 py-1 border border-light font-sans">
             Copiado
           </span>
         )}
@@ -124,7 +124,7 @@ function Contact() {
       <section className="flex justify-center items-center bg-light px-4 my-8" id="contact">
         <div className="w-full max-w-5xl bg-linear-to-br from-primary-dark to-primary text-light rounded-global p-8 md:p-12 flex flex-col md:flex-row gap-12 md:gap-16">
           <div className="flex flex-col gap-8 flex-1 py-8">
-            <h2 className='text-2xl text-center tracking-title text-light'>CONTACTO</h2>
+            <h2 className='text-2xl text-center tracking-title text-light'>CONTÁCTANOS</h2>
             <div className="grid grid-cols-[auto_1fr] gap-y-6 gap-x-4">
               <div className="flex items-center justify-center">
                 <PhoneIcon size={20}/>
@@ -158,7 +158,7 @@ function Contact() {
                 <div className="relative">
                   <textarea 
                     name="message" 
-                    rows="4" 
+                    rows="3" 
                     className="peer block w-full border border-transparent border-b-light/30 p-3 rounded-global outline-none" 
                     id="message" 
                     placeholder=" " 
@@ -183,7 +183,10 @@ function Contact() {
                       duration-300
                     ">Mensaje</label>
                 </div>
-                <button type="submit" className="w-full bg-light text-dark py-3 rounded-global hover:bg-light/80 transition duration-200 cursor-pointer">Enviar mensaje</button>
+                <button type="submit" className="flex items-center gap-3 justify-center w-full bg-primary-light/50 hover:bg-primary-light text-white font-light px-6 py-3 rounded-global transition duration-200 cursor-pointer">
+                  <span>Enviar mensaje</span>
+                  <SendIcon size={20}/>
+                </button>
               </form>
             )
           }

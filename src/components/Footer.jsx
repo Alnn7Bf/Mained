@@ -11,7 +11,7 @@ function Footer() {
         </div>
         <div className="text-center px-6 py-10 md:py-6">
           <p className="text-light/50 text-sm">
-            © {new Date().getFullYear()} Mained | Mantenimiento Integral. Todos los derechos reservados. | Desarrollo: 
+            © {new Date().getFullYear()} Mained | Mantenimiento Integral. Todos los derechos reservados. | Desarrollo: {" "} 
             <a 
               href="https://www.instagram.com/alnn7_bf" 
               target="_blank" 
