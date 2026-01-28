@@ -16,17 +16,17 @@ function About() {
             </div>
             <div className="flex flex-col gap-6">
               <h3 className="text-xl tracking-title text-center md:text-left">NUESTRA EXPERIENCIA</h3>
-              <ul className="space-y-2 border-l-2 border-primary pl-6">
+              <ul className="border-l-2 border-primary pl-6 -ml-2">
                 <li className="flex items-center gap-4">
-                  <span className="w-2 h-2 bg-primary rounded-full"></span>
+                  <span className="inline-block aspect-square w-2 min-w-2 bg-primary rounded-full"></span>
                   Más de 25 años de experiencia en proyectos comerciales
                 </li>
                 <li className="flex items-center gap-4">
-                  <span className="w-2 h-2 bg-primary rounded-full"></span>
+                  <span className="inline-block aspect-square w-2 min-w-2 bg-primary rounded-full"></span>
                   Cumplimiento estricto de normas y estándares de seguridad
                 </li>
                 <li className="flex items-center gap-4">
-                  <span className="w-2 h-2 bg-primary rounded-full"></span>
+                  <span className="inline-block aspect-square w-2 min-w-2 bg-primary rounded-full"></span>
                   Optimización de recursos y costos
                 </li>
               </ul>
